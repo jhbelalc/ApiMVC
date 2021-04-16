@@ -1,0 +1,181 @@
+﻿body {
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* WebLabelPrint styles
+-----------------------------------------------------------*/
+body
+{
+   background-color: #486E95;
+}
+
+a
+{
+   color: #006699;
+   text-decoration: none;
+}
+
+a:hover
+{
+   text-decoration: underline;
+}
+
+a:visited
+{
+   color: #006699;
+}
+
+td
+{
+   border: 1px solid black;
+   padding: 5px;
+}
+
+#MainHeader
+{
+   padding: 19px 0px 19px 0px;
+   background-color: #0C4F71;
+   width: 100%;
+   min-width: 1010px;
+   white-space: nowrap;
+}
+
+#BarTenderWebPrintServiceIframeContainerDiv
+{   
+   height: 2px;
+   overflow: hidden;   
+   visibility: hidden;
+}
+
+#MainContentWrapper
+{
+   position: relative;
+}
+
+#MainContentContainer
+{
+   position: absolute;
+   top: 0;
+   left: 205px;
+   right: 0;
+   min-width: 800px;
+   margin: 5px;
+}
+
+#PageNavigator
+{
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 200px;
+   background: white;
+   margin: 5px;
+   margin-top: 10px;
+}
+
+#PageNavigatorHeader
+{
+   background: #0C4F71;
+   color: white;
+   padding: 0.2em;
+   margin: 5px;   
+}
+
+.contentBox
+{
+   padding: 10px;
+   margin: 5px;
+   background: white;
+}
+
+.navItemContainer
+{
+   padding: 5px;
+}
+
+.tableHeader
+{
+   font-weight: bold;
+}
+
+.messageBox
+{
+   background: #fff6bf;
+   margin: 10px;
+   padding: 5px 20px 5px 20px;
+   border-top: 2px solid #ffd324;
+   border-bottom: 2px solid #ffd324;
+}
+
+.documentIconContainer
+{
+   float: left;
+   border: 1px solid black;
+   text-align: center;
+   margin: 5px;
+   background: #EEEEEE;
+   cursor: pointer;
+}
+
+.activeDocument
+{
+   background: #fff6bf;
+}

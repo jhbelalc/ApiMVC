@@ -1,0 +1,79 @@
+﻿@using WebLabelPrint.Models
+@model List<ServerPrinterInfo>
+
+@section Scripts
+{
+   <script src="@Url.Content("~/Scripts/WebLabelPrint/display-printers.js")" type="text/javascript"></script>
+}
+
+<!-- Server printers -->
+<div class="contentBox">
+   <h2>Server Printers</h2>
+   <p>These printers are installed on the web server.</p>
+   <table>
+      <thead>
+         <tr class="TableHeader">
+            <td>Printer Name</td>
+            <td>Driver Name</td>
+            <td>Location</td>
+            <td>Port</td>
+            <td>IsDefault</td>
+         </tr>
+      </thead>
+      <tbody>
+      @foreach (ServerPrinterInfo serverPrinter in Model)
+      {
+         <tr>
+            <td>@serverPrinter.PrinterName</td>
+            <td>@serverPrinter.DriverName</td>
+            <td>@serverPrinter.Location</td>
+            <td>@serverPrinter.PortName</td>
+            <td>@serverPrinter.IsDefault.ToString()</td>
+         </tr>
+      }
+      </tbody>
+   </table>
+</div>
+
+<!-- Client printers. The tbody section is filled in when the client print module has loaded. -->
+<div class="contentBox">
+   <h2>Client Printers</h2>
+   <p>These printers are installed on the client computer.</p>
+
+   <!-- Client print not ready message. This is hidden when the client print module calls the OnClientPrintLoad() function. -->
+   <div class="messageBox" id="ClientPrintNotReadyMessage">
+      @if ((Settings.ClientPrintModule == Settings.ClientPrintModuleType.BarTenderWebPrintServiceCORS) ||
+           (Settings.ClientPrintModule == Settings.ClientPrintModuleType.BarTenderWebPrintServiceIFrame))
+      {
+         string installerURL = Url.Content("~/Content/ClientComponents/BarTenderWebPrintService.exe");
+      
+         <span>The BarTender Web Print Service has either not been installed or has not been loaded. </span>
+         <a href="@installerURL" target="_blank">Click here to launch the installer.</a>
+         <span>The included Javascript polls every 5 seconds to determine if it is ready. Note that communication
+         with CORS will not work in IE8 and IE9. IE8 and IE9 may also need a browser restart after the service has
+         been installed or started for the first time.</span>
+         
+         <p id="WebPrintServiceOutOfDateMessage" style="display:none;">The BarTender Web Print Service has been loaded but it is out of date. Please click the link above to install
+         the current version of the service.</p>
+      }
+      else if (Settings.ClientPrintModule == Settings.ClientPrintModuleType.JavaApplet)
+      {
+         <span>The client printing Java applet has not been loaded yet. The Java applet uses LiveConnect to call
+         the OnClientPrintLoad() function after it has initialized.</span>
+      }
+   </div>
+
+   <table id="DisplayPrinters_ClientPrintersTable">
+      <thead>
+         <tr class="tableHeader">
+            <td>Printer Name</td>
+            <td>Driver Name</td>
+            <td>Location</td>
+            <td>Port</td>
+            <td>IsDefault</td>
+         </tr>
+      </thead>
+      <tbody>
+      </tbody>
+   </table>
+</div>

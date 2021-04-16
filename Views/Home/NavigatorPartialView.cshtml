@@ -1,0 +1,41 @@
+﻿@model string
+
+<div id="PageNavigator">
+   <div id="PageNavigatorHeader">Select a Task</div>
+
+   @if (Model == "LearnAboutSample")
+   {
+      <div class="navItemContainer" style="background-color:#EEEEEE;">@Html.ActionLink("Learn about Sample", "Index")</div>
+   }
+   else
+   {
+      <div class="navItemContainer">@Html.ActionLink("Learn about Sample", "Index")</div>
+   }   
+
+   @if (Model == "DisplayPrinters")
+   {
+      <div class="navItemContainer" style="background-color:#EEEEEE;">@Html.ActionLink("Display Printers", "DisplayPrinters")</div>
+   }
+   else
+   {
+      <div class="navItemContainer">@Html.ActionLink("Display Printers", "DisplayPrinters")</div>
+   }
+
+   @if (Model == "PrintDocuments")
+   {
+      <div class="navItemContainer" style="background-color:#EEEEEE;">@Html.ActionLink("Print Documents", "PrintDocuments")</div>
+   }
+   else
+   {
+      <div class="navItemContainer">@Html.ActionLink("Print Documents", "PrintDocuments")</div>
+   }
+
+   @if (Model == "Settings")
+   {
+      <div class="navItemContainer" style="background-color:#EEEEEE;">@Html.ActionLink("Settings", "Settings")</div>
+   }
+   else
+   {
+      <div class="navItemContainer">@Html.ActionLink("Settings", "Settings")</div>
+   }
+</div>

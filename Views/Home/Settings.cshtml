@@ -1,0 +1,35 @@
+﻿@using WebLabelPrint.Models;
+
+<div class="contentBox">
+   @using (Html.BeginForm("UpdateSettings", "Home"))
+   {
+      string webPrintServiceIFrameChecked = (Settings.ClientPrintModule == Settings.ClientPrintModuleType.BarTenderWebPrintServiceIFrame) ? "checked" : string.Empty;
+      string webPrintServiceCORSChecked = (Settings.ClientPrintModule == Settings.ClientPrintModuleType.BarTenderWebPrintServiceCORS) ? "checked" : string.Empty;
+      string javaAppletChecked = (Settings.ClientPrintModule == Settings.ClientPrintModuleType.JavaApplet) ? "checked" : string.Empty;
+      
+      <p>Select which client print module type to use</p>
+      <div>
+         <input type="radio" id="ClientPrintTypeWebPrintServiceIFrame" value="WebPrintServiceIFrame" name="ClientPrintType" @webPrintServiceIFrameChecked />
+         <label id="ClientPrintTypeWebPrintServiceIFrameLabel" for="ClientPrintTypeWebPrintServiceIFrame">BarTender Web Print Service (communication via IFrame)</label>
+      </div>
+      <div>
+         <input type="radio" id="ClientPrintTypeWebPrintServiceCORS" value="WebPrintServiceCORS" name="ClientPrintType" @webPrintServiceCORSChecked />
+         <label id="ClientPrintTypeWebPrintServiceCORSLabel" for="ClientPrintTypeWebPrintServiceCORS">BarTender Web Print Service (communication via CORS)</label>
+      </div>
+      <div>
+         <input type="radio" id="ClientPrintTypeJavaApplet" value="JavaApplet" name="ClientPrintType" @javaAppletChecked />
+         <label id="ClientPrintTypeJavaAppletLabel" for="ClientPrintTypeJavaApplet">Java Applet</label>
+      </div>
+      
+      <div style="margin-top:20px;">
+         <input type="submit" value="Save Changes" />
+      </div>
+      
+      if ((bool)ViewBag.SavedChanges)
+      {
+         <div style="margin-top:20px;">
+            <label>Successfully saved settings.</label>
+         </div>
+      }
+   }
+</div>
